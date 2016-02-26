@@ -19,7 +19,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
-        <version>1.2.1</version>
+        <!--<version>1.2.1</version>-->
         <executions>
           <execution>
             <phase>prepare-package</phase>
@@ -37,7 +37,10 @@
       <plugin>
         <groupId>com.github.trecloux</groupId>
         <artifactId>yeoman-maven-plugin</artifactId>
-        <version>0.1</version>
+        <version>0.5</version>
+        <configuration>
+          <yeomanProjectDirectory>blankapp</yeomanProjectDirectory>
+        </configuration>
         <executions>
             <execution>
                 <goals>
@@ -73,9 +76,11 @@
                 <fileset>
                     <directory>blankapp/app/components</directory>
                 </fileset>
+                <!--
                 <fileset>
                   <directory>blankapp/node_modules</directory>
                 </fileset>
+                -->
             </filesets>
         </configuration>
       </plugin>

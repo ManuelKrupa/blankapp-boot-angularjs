@@ -6,7 +6,7 @@
 	<artifactId>blankapp-frontoffice</artifactId>
 	<packaging>war</packaging>
 
-	<name>blankapp</name>
+	<name>blankapp-frontoffice</name>
 	<description>FrontOffice for Blankapp Project</description>
 
 	<parent>
@@ -20,6 +20,7 @@
 			<groupId>com.mkrupa</groupId>
 			<artifactId>blankapp-web</artifactId>
 			<version>${blankapp.version}</version>
+      <type>war</type>
 		</dependency>
 	</dependencies>
 
