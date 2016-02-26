@@ -1,0 +1,37 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+  <h2 class="sub-header">{{"views.profiles.list.title" | translate}}</h2>
+  <div class="warning alert-error" ng-show="showErrorAlert">
+	<button type="button" class="close" data-ng-click="showErrorAlert=false">×</button>{{errorTextAlert}}
+  </div>
+  <div class="row">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 addbutton" access="profiles.create">
+      <a href="#/profiles/create"><img src="/images/add-icon.png" />{{"views.profiles.list.add" | translate}}</a>
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{"views.profiles.label" | translate}}</th>
+          <th>{{"views.profiles.description" | translate}}</th>
+          <th>{{"views.profiles.list.nbusers" | translate}}</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="profil in profils">
+          <td>{{profil.libelle}}</td>
+          <td>{{profil.description}}</td>
+          <td>{{profil.nbUtilisateurs}}</td>
+          <td><a href="#/profiles/{{profil.id}}" access="profiles.edit"><img src="/images/edit-icon.png" /></a></td>
+          <td><img ng-click="deleteProfile({{profil.id}})" src="/images/remove-icon.png" access="profiles.delete" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

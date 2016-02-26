@@ -1,0 +1,9 @@
+<div ng-controller="MenuCtrl" ng-show="isAuthenticated">
+  <div class="col-sm-3 col-md-2 sidebar">
+    <ul class="nav nav-sidebar">
+      <li ng-class="{active: isActive('/home')}"><a href="#/home">{{"views.menu.app" | translate}}</a></li>
+      <li ng-class="{active: isActive('/users')}" ng-show="seeUsers"><a href="#/users">{{"views.menu.usermanagement" | translate}}</a></li>
+      <li ng-class="{active: isActive('/profiles')}" ng-show="seeProfiles"><a href="#/profiles">{{"views.menu.profilemanagement" | translate}}</a></li>
+    </ul>
+  </div>
+</div>

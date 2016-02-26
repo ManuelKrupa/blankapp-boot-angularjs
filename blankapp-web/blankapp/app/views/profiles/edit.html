@@ -1,0 +1,58 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  
+  <h2 class="sub-header">{{"views.profiles.edit.title" | translate}}</h2>
+    
+  <form class="form-horizontal" name="createForm" novalidate>
+    <div class="row">
+    	<!-- 1ere colonne -->
+    	<div class="col-md-6">
+ 
+		    <div class="form-group">
+		    	<label class="col-sm-2 control-label">{{"views.profiles.label" | translate}}</label>
+		    	<div class="col-sm-10">{{profile.libelle}}</div>
+		    </div>
+		    
+		    <div class="form-group">
+		    	<label class="col-sm-2 control-label">{{"views.profiles.description" | translate}}</label>
+		    	<div class="col-sm-10">{{profile.description}}</div>
+		    </div>
+		    
+	    </div>
+	    <!-- 2eme colonne -->
+	    <div class="col-md-6">
+	    	
+	    	<div class="table-responsive">
+			    <table class="table table-striped">
+			      <thead>
+			        <tr>
+			          <th>{{"views.profiles.create.habilitation" | translate}}</th>
+			          <th></th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr ng-repeat="habilitation in habilitations">
+			          <td>{{habilitation.label}}</td>
+			          <td>
+			          	<div class="checkbox">
+			          		<input type="checkbox" value="" ng-checked="habIsChecked(habilitation)" ng-click="selectHab(habilitation)" />
+			          	</div>
+			          </td>
+			        </tr>
+			      </tbody>
+			    </table>
+			</div>
+	    </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-8"></div>
+    	<div class="col-md-2">
+    		<button class="btn btn-lg btn-primary btn-block" ng-click="cancelProfile()">{{"views.global.cancel" | translate}}</button>
+    	</div>
+    	<div class="col-md-2">
+    		<button class="btn btn-lg btn-primary btn-block" ng-disabled="createForm.$invalid" ng-click="editProfile()">{{"views.global.save" | translate}}</button>
+    	</div>
+    </div>
+    <div class="error" ng-show="editionFail">{{failError}}</div>
+  </form>
+ 
+</div>

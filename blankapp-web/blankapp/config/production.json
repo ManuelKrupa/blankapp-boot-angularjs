@@ -1,0 +1,4 @@
+{
+	"backendURL": "http://production",
+	"context": "/backoffice"
+}

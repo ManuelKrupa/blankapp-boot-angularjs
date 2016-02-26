@@ -1,0 +1,14 @@
+<div class="container">
+
+  <form class="form-signin form-group" name="loginForm" ng-submit="loginUser()" novalidate>
+    <h2 class="form-signin-heading">{{"views.login.title" | translate}}</h2>
+    <input type="email" name="login" class="form-control" placeholder="{{'views.login.email' | translate}}" ng-model="user.email" required>
+    <div class="validation" ng-show="loginForm.login.$dirty && loginForm.login.$error.required">{{"error.email.mandatory" | translate}}</div>
+    <div class="validation" ng-show="loginForm.login.$dirty && loginForm.login.$error.email">{{"error.email.format" | translate}}</div>
+    <input type="password" name="pwd" ng-model="user.password" class="form-control" placeholder="{{'views.login.password' | translate}}" required>
+    <div class="validation" ng-show="loginForm.pwd.$dirty && loginForm.pwd.$error.required">{{"error.password.mandatory" | translate}}</div>
+    <button class="btn btn-lg btn-primary btn-block" ng-disabled="loginForm.$invalid">{{"views.login.signin" | translate}}</button>
+    <div class="error" ng-show="loginFail">{{"error.login.failed" | translate}}</div>
+  </form>
+
+</div> <!-- /container -->

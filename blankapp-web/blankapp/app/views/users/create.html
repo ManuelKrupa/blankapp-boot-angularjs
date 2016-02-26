@@ -1,0 +1,79 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  
+  <h2 class="sub-header" ng-show="!isEdition">{{"views.users.create.title" | translate}}</h2>
+  <h2 class="sub-header" ng-show="isEdition">{{"views.users.edit.title" | translate}}</h2>
+  
+  <div class="warning alert-error" ng-show="showErrorAlert">
+	<button type="button" class="close" data-ng-click="showErrorAlert=false">×</button>{{errorTextAlert}}
+  </div>
+    
+  <form class="form-horizontal" name="createForm" novalidate>
+    <div class="row">
+    	<!-- 1ere colonne -->
+    	<div class="col-md-6">
+ 
+		    <div class="form-group">
+		    	<label for="inputName" class="col-sm-2 control-label">{{"views.users.lastname" | translate}}</label>
+		    	<div class="col-sm-10">
+		      		<input type="text" class="form-control" name="inputName" placeholder="{{'views.users.lastnameplaceholder' | translate}}" ng-model="user.nom" required />
+		    	</div>
+		    </div>
+		    <div class="validation" ng-show="createForm.inputName.$dirty && createForm.inputName.$error.required">{{"error.lastname.mandatory" | translate}}</div>
+		    
+		    <div class="form-group">
+		    	<label for="inputSurname" class="col-sm-2 control-label">{{"views.users.firstname" | translate}}</label>
+		    	<div class="col-sm-10">
+		      		<input type="text" class="form-control" name="inputSurname" placeholder="{{'views.users.firstnameplaceholder' | translate}}" ng-model="user.prenom" required />
+		    	</div>
+		    </div>
+		    <div class="validation" ng-show="createForm.inputSurname.$dirty && createForm.inputSurname.$error.required">{{"error.firstname.mandatory" | translate}}</div>
+		    
+		    <div class="form-group" ng-show="!isEdition">
+		    	<label for="inputLogin" class="col-sm-2 control-label">{{"views.users.login" | translate}}</label>
+		    	<div class="col-sm-10">
+		      		<input type="email" class="form-control" name="inputLogin" placeholder="{{'views.users.loginplaceholder' | translate}}" ng-model="user.login" required />
+		    	</div>
+		    </div>
+		    <div class="validation" ng-show="createForm.inputLogin.$dirty && createForm.inputLogin.$error.required">{{"error.login.mandatory" | translate}}</div>
+		    <div class="validation" ng-show="createForm.inputLogin.$dirty && createForm.inputLogin.$error.email">{{"error.email.format" | translate}}</div>
+		    
+		    <div class="form-group" ng-show="isEdition">
+		    	<label class="col-sm-2 control-label">{{"views.users.login" | translate}}</label>
+		    	<div class="col-sm-10">{{user.login}}</div>
+		    </div>
+		    
+		    <div class="form-group">
+		    	<label for="inputPwd" class="col-sm-2 control-label">{{"views.users.password" | translate}}</label>
+		    	<div class="col-sm-10">
+		      		<input type="password" class="form-control" name="inputPwd" placeholder="{{'views.users.pwdplaceholder' | translate}}" ng-model="user.password" required />
+		    	</div>
+		    </div>
+		    <div class="validation" ng-show="createForm.inputPwd.$dirty && createForm.inputPwd.$error.required">{{"error.password.mandatory" | translate}}</div>
+		    
+		    <div class="form-group">
+		    	<label class="col-sm-2 control-label">{{"views.users.profile" | translate}}</label>
+       			<div class="col-sm-10 selectContainer">
+           			<select class="form-control" name="profileSelect"
+           				ng-model="profileSelected" ng-change="changedValue(profileSelected)"
+           				data-ng-options="profile as profile.libelle for profile in profiles" required>
+               			<option value="">{{"views.users.profile.select" | translate}}</option>
+           			</select>
+       			</div>
+		    </div>
+		    <div class="validation" ng-show="createForm.profileSelect.$error.required">{{"error.profile.mandatory" | translate}}</div>
+		       
+	    </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-8"></div>
+    	<div class="col-md-2">
+    		<button class="btn btn-lg btn-primary btn-block" ng-click="cancelUser()">{{"views.global.cancel" | translate}}</button>
+    	</div>
+    	<div class="col-md-2">
+    		<button class="btn btn-lg btn-primary btn-block" ng-disabled="createForm.$invalid" ng-click="createOrUpdateUser()">{{"views.global.save" | translate}}</button>
+    	</div>
+    </div>
+    <div class="error" ng-show="editionFail">{{failError}}</div>
+  </form>
+ 
+</div>

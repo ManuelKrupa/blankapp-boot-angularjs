@@ -1,0 +1,35 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+  <h2 class="sub-header">{{"views.users.title" | translate}}</h2>
+  <div class="row">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 addbutton" access="users.create">
+      <img src="/images/add-icon.png" />
+      <a href="#/users/create">{{"views.users.add" | translate}}</a>
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{"views.users.name" | translate}}</th>
+          <th>{{"views.users.login" | translate}}</th>
+          <th>{{"views.users.profile" | translate}}</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in users">
+          <td>{{user.prenom}} {{user.nom}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.profile}}</td>
+          <td><a href="#/users/{{user.id}}" access="users.edit"><img src="/images/edit-icon.png" /></a></td>
+          <td><img ng-click="deleteUser({{user.id}})" src="/images/remove-icon.png" access="users.delete" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

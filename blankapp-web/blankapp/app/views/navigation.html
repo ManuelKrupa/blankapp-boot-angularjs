@@ -1,0 +1,22 @@
+<!--Navigation bar -->
+<div ng-controller="NavigationCtrl" class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-show="isAuthenticated">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">{{"views.navigation.app" | translate}}</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <label class="navbar-text">{{"views.navigation.welcome" | translate}} {{getUserConnecte()}}</label>
+        <li><div ng-translate-language-select></div></li>
+        <li><a href="#/myaccount">{{"views.navigation.myaccount" | translate}}</a></li>
+        <li><a href="#/login" ng-click="disconnect()">{{"views.navigation.logout" | translate}}</a></li>
+        <li><a href="#/about">{{"views.navigation.about" | translate}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+  <h2 class="sub-header">Users</h2>
+  <div class="row">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 addbutton">
+      <img src="/images/add-icon.png" />
+      <a href="#">Add a user</a>
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Login</th>
+          <th>Profile</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in users">
+          <td>{{user.prenom}} {{user.nom}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.profil.libelle}}</td>
+          <td><img src="/images/edit-icon.png" /></td>
+          <td><img src="/images/remove-icon.png" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- OLD TODOS EXAMPLE -->
+<!--
+<div class="container">
+  <h2>My todos</h2>
+  
+  <!-- Todos input ->
+  <form role="form" ng-submit="addTodo()">
+    <div class="row">
+      <div class="input-group">
+        <input type="text" ng-model="todo" placeholder="What needs to be done?" class="form-control">
+        <span class="input-group-btn">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </span>
+      </div>
+    </div>
+  </form>
+  <p></p>
+
+  <!-- Todos list ->
+  <div ui-sortable ng-model="todos">
+    <p class="input-group" ng-repeat="todo in todos" style="padding:5px 10px; cursor: move;">
+      <input type="text" ng-model="todo" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+      </span>
+    </p>     
+  </div>
+</div>
+-->

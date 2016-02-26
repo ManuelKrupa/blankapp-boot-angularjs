@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>blankapp-frontoffice</artifactId>
+	<packaging>war</packaging>
+
+	<name>blankapp</name>
+	<description>FrontOffice for Blankapp Project</description>
+
+	<parent>
+		<groupId>com.mkrupa</groupId>
+		<artifactId>blankapp</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<dependencies>
+    	<dependency>
+			<groupId>com.mkrupa</groupId>
+			<artifactId>blankapp-web</artifactId>
+			<version>${blankapp.version}</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<configuration>
+						<overlays>
+							<overlay>
+								<groupId>com.mkrupa</groupId>
+								<artifactId>blankapp-web</artifactId>
+							</overlay>
+						</overlays>
+					</configuration>
+				</plugin>	
+		</plugins>
+	</build>
+	
+	
+
+</project>

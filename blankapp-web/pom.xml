@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.mkrupa</groupId>
+    <artifactId>blankapp</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  
+  <artifactId>blankapp-web</artifactId>
+  <packaging>war</packaging>
+  
+  <name>blankapp-web</name>
+  <description>Angular Web Development for BlankApp Project</description>
+  
+  <build>
+  	<plugins>
+      <!-- Exec Grunt plugin in Maven -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>grunt</executable>
+          <workingDirectory>./blankapp</workingDirectory>
+        </configuration>
+      </plugin>
+      <!-- Execute Yeoman tasks in Maven -->
+      <plugin>
+        <groupId>com.github.trecloux</groupId>
+        <artifactId>yeoman-maven-plugin</artifactId>
+        <version>0.1</version>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>build</goal>
+                </goals>
+            </execution>
+        </executions>
+      </plugin>
+      <!-- Add Yeoman build files in the WAR -->
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+            <webResources>
+                <resource>
+                    <directory>blankapp/dist</directory>
+                </resource>
+            </webResources>
+        </configuration>
+      </plugin>
+      <!-- Clean Yeoman preceding builds -->
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+            <filesets>
+                <fileset>
+                    <directory>blankapp/dist</directory>
+                </fileset>
+                <fileset>
+                    <directory>blankapp/.tmp</directory>
+                </fileset>
+                <fileset>
+                    <directory>blankapp/app/components</directory>
+                </fileset>
+                <fileset>
+                  <directory>blankapp/node_modules</directory>
+                </fileset>
+            </filesets>
+        </configuration>
+      </plugin>
+      <!-- Execute Bower to package sources -->
+      <!-->
+      <plugin>
+       <groupId>org.codehaus.mojo</groupId>
+       <artifactId>exec-maven-plugin</artifactId>
+       <executions>
+         <execution>
+         <phase>generate-sources</phase>
+         <goals>
+          <goal>exec</goal>
+         </goals>
+         </execution>
+       </executions>
+       <configuration>
+         <executable>bower</executable>
+         <arguments>
+          <argument>install</argument>
+         </arguments>
+         <workingDirectory>blankapp</workingDirectory>
+       </configuration>
+      </plugin>
+      -->
+  	</plugins>
+  </build>
+	  
+
+</project>

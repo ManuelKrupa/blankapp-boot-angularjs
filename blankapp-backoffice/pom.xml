@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>blankapp-backoffice</artifactId>
+	<packaging>war</packaging>
+	
+	<name>blankapp-backoffice</name>
+	<description>BackOffice for BlankApp Project</description>
+
+	<parent>
+		<groupId>com.mkrupa</groupId>
+		<artifactId>blankapp</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<!-- Classe de demarrage Spring Boot -->
+	<properties>
+		<start-class>com.mkrupa.blankapp.backoffice.BackOfficeApplication</start-class>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+	
+		<!-- Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+		<!-- Spring Web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+	      	<exclusions>
+	        	<exclusion>
+	          		<groupId>org.apache.tomcat.embed</groupId>
+			 		<artifactId>tomcat-embed-core</artifactId>
+	        	</exclusion>
+        		<exclusion>
+          			<groupId>org.apache.tomcat.embed</groupId>
+          			<artifactId>tomcat-embed-logging-juli</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- Spring dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework</groupId>
+        	<artifactId>spring-core</artifactId>
+        </dependency>
+        
+        <!-- JSON Web Token -->
+        <dependency>
+    		<groupId>com.auth0</groupId>
+    		<artifactId>java-jwt</artifactId>
+    	</dependency>
+		
+		<!-- Spring Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+      		<scope>test</scope>
+		</dependency>
+		
+		<!-- Annotation based webapplication -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- BDD for runtime tests -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+	
+	</dependencies>
+	
+</project>
