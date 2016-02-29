@@ -15,24 +15,6 @@
   
   <build>
   	<plugins>
-      <!-- Exec Grunt plugin in Maven -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <!--<version>1.2.1</version>-->
-        <executions>
-          <execution>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <executable>grunt</executable>
-          <workingDirectory>./blankapp</workingDirectory>
-        </configuration>
-      </plugin>
       <!-- Execute Yeoman tasks in Maven -->
       <plugin>
         <groupId>com.github.trecloux</groupId>
@@ -76,36 +58,12 @@
                 <fileset>
                     <directory>blankapp/app/components</directory>
                 </fileset>
-                <!--
                 <fileset>
                   <directory>blankapp/node_modules</directory>
                 </fileset>
-                -->
             </filesets>
         </configuration>
       </plugin>
-      <!-- Execute Bower to package sources -->
-      <!-->
-      <plugin>
-       <groupId>org.codehaus.mojo</groupId>
-       <artifactId>exec-maven-plugin</artifactId>
-       <executions>
-         <execution>
-         <phase>generate-sources</phase>
-         <goals>
-          <goal>exec</goal>
-         </goals>
-         </execution>
-       </executions>
-       <configuration>
-         <executable>bower</executable>
-         <arguments>
-          <argument>install</argument>
-         </arguments>
-         <workingDirectory>blankapp</workingDirectory>
-       </configuration>
-      </plugin>
-      -->
   	</plugins>
   </build>
 	  

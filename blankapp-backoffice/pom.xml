@@ -22,10 +22,31 @@
 
 	<build>
 		<plugins>
-			<plugin>
+			<!-- Boot plugin -->
+      <plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+      <!-- Jetty plugin 
+      in version 8 to be compatible with all JDKs
+      version 9 only compatible with JDK versions > 8.x
+      change org.mortbay.jetty by org.eclipse.jetty to use last version
+      -->
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <configuration>
+          <connectors>
+            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+              <port>8080</port>
+              <host>localhost</host>
+            </connector>
+          </connectors> 
+          <webApp>
+            <contextPath>/${artifactId}</contextPath>
+          </webApp>
+        </configuration>
+       </plugin>
 		</plugins>
 	</build>
 
